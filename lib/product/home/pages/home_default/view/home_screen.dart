@@ -30,12 +30,105 @@ class HomeScreen extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           resizeToAvoidBottomInset: false,
+
+          //single child scroll view kullanıldı çünkü ekran küçük olduğunda hata veriyordu, overflow oluyordu
           body: SafeArea(
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemBuilder: (context, index) => _Ilan(context, index),
-              itemCount: 10,
+            //single child scroll view kullanıldı çünkü ekran küçük olduğunda hata veriyordu, overflow oluyordu
+            //eklenerek çözüldü. ayrıca scrollu engelliyordu, o da physics ile listvies içerisinde düzeltildi.
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20.0, right: 20, top: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        // isim kısmı olsa mı bilemedim açıkçası
+
+                        // Text("Aya",
+                        //     style: Theme.of(context)
+                        //         .textTheme
+                        //         .bodyMedium
+                        //         ?.copyWith(fontSize: 20)),
+                        // IconButton(
+                        //   onPressed: () => print("filtreleme"),
+                        //   icon: const Icon(Icons.help_center_outlined),
+                        // ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20.0, right: 20, top: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: "Arama",
+                              hintStyle: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(fontSize: 18),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20.0, right: 20, top: 10),
+                    child: DefaultTabController(
+                      length: 100,
+                      child: TabBar(
+                        indicatorColor: colorPrimary,
+                        labelColor: colorPrimary,
+                        unselectedLabelColor: colorDisable,
+                        tabs: [
+                          //kategoriler listesi
+                          //ama boyle tek tek tiklanmiyor sanirim, nasil cozeriz bilemedim burada saliyorm.
+                          SizedBox(
+                            height: 30,
+                            width: MediaQuery.of(context).size.width * 0.99,
+                            child: ListView.builder(
+                              itemBuilder: (context, index) =>
+                                  _kategoriler(context, _Strings.tagler[index]),
+                              itemCount: 10,
+                              scrollDirection: Axis.horizontal,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  ListView.builder(
+                    //physics sayesinde single child scroll view ile oluşan aşağı inememe problemi çözüldü
+                    physics: const NeverScrollableScrollPhysics(),
+                    //ilanlar listesi
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) => _Ilan(context, index),
+                    itemCount: 3,
+                  ),
+                ],
+              ),
             ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            //ilan ekleme tuşu
+            onPressed: () => print("Ekleme Butonu"),
+            backgroundColor: colorPrimaryTint20,
+            child: const Text("+",
+                style: TextStyle(fontSize: 40, color: colorWhite)),
           ),
         );
       },
@@ -45,17 +138,16 @@ class HomeScreen extends StatelessWidget {
   Container _Ilan(BuildContext context, int index) => Container(
         height: 250,
         margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
-        //make border radius 20
         decoration: BoxDecoration(
           color: colorPrimary,
           borderRadius: BorderRadius.circular(20),
         ),
-
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
+              //ilan sahibi kısmı
               padding: const EdgeInsets.only(
                   left: 15.0, right: 15.0, top: 15, bottom: 5),
               child: Text("Seda Nur Taşkan",
@@ -64,6 +156,7 @@ class HomeScreen extends StatelessWidget {
                       )),
             ),
             Padding(
+              //ilan açıklaması kısmı
               padding: const EdgeInsets.only(left: 15.0, right: 10, top: 5),
               child: Text(
                   "Battaniye lazım bana hemen seri Battaniye lazım bana hemen seri lazım bana hemen seri Battaniye lazım bana hemen seri Battaniye lazım bana hemen seri",
@@ -75,6 +168,7 @@ class HomeScreen extends StatelessWidget {
                       ?.copyWith(fontSize: 18, color: colorDisable)),
             ),
             Padding(
+              //tag ve konum kısmı
               padding: const EdgeInsets.only(left: 15.0, right: 15, top: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,6 +193,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Container(
+              //maps kısmı
               height: 100,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -145,6 +240,7 @@ class HomeScreen extends StatelessWidget {
       );
 
   Container _ilanTag(BuildContext context, String index) => Container(
+        //tagler için ayarlar
         decoration: BoxDecoration(
           color: colorPrimaryTint20,
           borderRadius: BorderRadius.circular(20),
@@ -159,8 +255,23 @@ class HomeScreen extends StatelessWidget {
       );
 }
 
+Container _kategoriler(BuildContext context, String index) => Container(
+      //kategoriler için ayarlar
+      padding: const EdgeInsets.all(1),
+      margin: const EdgeInsets.only(right: 5),
+      child: Text(index.toString(),
+          style:
+              Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 20)),
+    );
+
 class _Strings {
   static const List<String> tagler = [
+    //geçici olarak eklediğimiz tagler
+    "barınma",
+    "ısınma",
+    "bebek",
+    "giyim",
+    "diger",
     "barınma",
     "ısınma",
     "bebek",

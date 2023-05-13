@@ -44,7 +44,8 @@ class ProfileScreen extends StatelessWidget {
 
   Padding _floatingActionButton(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 0, bottom: MediaQuery.of(context).size.height - 140),
+      padding: EdgeInsets.only(
+          right: 0, bottom: MediaQuery.of(context).size.height - 140),
       child: SizedBox(
         height: 40,
         width: 40,
@@ -52,7 +53,8 @@ class ProfileScreen extends StatelessWidget {
           mini: true,
           backgroundColor: Theme.of(context).cardColor,
           onPressed: () => {},
-          child: Icon(Icons.more_vert, color: Theme.of(context).primaryColor, size: 28),
+          child: Icon(Icons.more_vert,
+              color: Theme.of(context).primaryColor, size: 28),
         ),
       ),
     );
