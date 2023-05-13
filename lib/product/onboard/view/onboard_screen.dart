@@ -31,20 +31,26 @@ class OnboardScreen extends StatelessWidget {
     );
   }
 
-  void _navigateToLoginScreen(BuildContext context) => context.router.replaceNamed('/login');
+  void _navigateToLoginScreen(BuildContext context) =>
+      context.router.replaceNamed('/login');
 
   List<PageViewModel> _introductionPages(BuildContext context) {
     // todo -> elle vermek yerine dongu kullanilarak dinamiklestirilebilir ama gerek var mi?
     return [
-      _pageViewModel(context, _Strings()._introImageAddress[0], _Strings()._introTitles[0], _Strings()._introText[0]),
-      _pageViewModel(context, _Strings()._introImageAddress[1], _Strings()._introTitles[1], _Strings()._introText[1]),
-      _pageViewModel(context, _Strings()._introImageAddress[2], _Strings()._introTitles[2], _Strings()._introText[2]),
+      _pageViewModel(context, _Strings()._introImageAddress[0],
+          _Strings()._introTitles[0], _Strings()._introText[0]),
+      _pageViewModel(context, _Strings()._introImageAddress[1],
+          _Strings()._introTitles[1], _Strings()._introText[1]),
     ];
   }
 
-  PageViewModel _pageViewModel(BuildContext context, String imageAddress, String title, String text) {
+  PageViewModel _pageViewModel(
+      BuildContext context, String imageAddress, String title, String text) {
     return PageViewModel(
-      image: Image.asset(imageAddress, fit: BoxFit.cover, width: MediaQuery.of(context).size.width * 1.25, height: 420),
+      image: Image.asset(imageAddress,
+          fit: BoxFit.cover,
+          width: MediaQuery.of(context).size.width * 1.25,
+          height: 420),
       title: title,
       body: text,
       decoration: _pageDecoration(context),
@@ -55,7 +61,9 @@ class OnboardScreen extends StatelessWidget {
     int imageFlex = 3;
     return PageDecoration(
       imageFlex: imageFlex,
-      bodyPadding: EdgeInsets.only(left: MediaQuery.of(context).size.width / 20, right: MediaQuery.of(context).size.width / 20),
+      bodyPadding: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width / 20,
+          right: MediaQuery.of(context).size.width / 20),
       bodyTextStyle: _Styles()._bodyStyle(context),
       titlePadding: const EdgeInsets.only(bottom: 10),
       titleTextStyle: _Styles()._titleStyle(context),
@@ -67,7 +75,10 @@ class OnboardScreen extends StatelessWidget {
 // box decoration on this page
 class _BoxDecorations {
   final BoxDecoration _gradient = const BoxDecoration(
-    gradient: RadialGradient(center: Alignment(-0.6, 0.7), radius: 0.5, colors: <Color>[colorDarkBlue, colorWhite]),
+    gradient: RadialGradient(
+        center: Alignment(-0.6, 0.7),
+        radius: 0.5,
+        colors: <Color>[colorDarkBlue, colorWhite]),
   );
 }
 
@@ -80,18 +91,15 @@ class _Strings {
   final List<String> _introImageAddress = [
     'assets/images/png/com_4.png',
     'assets/images/png/com_3.png',
-    'assets/images/png/com_2.png',
   ];
   final List<String> _introTitles = [
-    'Yüzlerce Farklı Topluluk.',
-    'Kendi topluluğunu oluştur.',
-    'Favori film listeni oluştur.',
+    'Yardım Et',
+    'Yardım Çağrısı Yap',
   ];
 
   final List<String> _introText = [
-    'Sosyalleşip sinema hakkında konuşup sohbet edebilecegin yüzlerce topluluga katıl!',
-    'Sinema severleri bir araya topla ve onlarla istedigin her konu hakkında konuş.',
-    'Profilinde herkese açık ya da özel şekilde listeler oluştur ve paylaş.',
+    'İhtiyaç sahiplerine tek tıkla ulaş.',
+    'İhtiyaçlarını tek tıkla bildir.',
   ];
 }
 
@@ -111,9 +119,12 @@ class _Styles {
     return Theme.of(context).elevatedButtonTheme.style!.copyWith(
           backgroundColor: MaterialStateProperty.all<Color>(colorTransparent),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0), side: const BorderSide(color: colorDarkBlue)),
+            RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25.0),
+                side: const BorderSide(color: colorDarkBlue)),
           ),
-          textStyle: MaterialStateProperty.all<TextStyle?>(Theme.of(context).textTheme.displaySmall!.copyWith()),
+          textStyle: MaterialStateProperty.all<TextStyle?>(
+              Theme.of(context).textTheme.displaySmall!.copyWith()),
         );
   }
 }
