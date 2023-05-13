@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.aya">
+    package="com.example.moviote_app_1v0">
    <application
-        android:label="aya"
+        android:label="moviote_app_1v0"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

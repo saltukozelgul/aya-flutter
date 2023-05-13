@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "aya" "\0"
+            VALUE "FileDescription", "moviote_app_1v0" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "aya" "\0"
+            VALUE "InternalName", "moviote_app_1v0" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "aya.exe" "\0"
-            VALUE "ProductName", "aya" "\0"
+            VALUE "OriginalFilename", "moviote_app_1v0.exe" "\0"
+            VALUE "ProductName", "moviote_app_1v0" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
