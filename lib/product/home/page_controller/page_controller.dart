@@ -14,7 +14,6 @@ class HomePageController extends StatelessWidget {
         routes: const [
           HomePagesRouter(children: [HomeRouter()]),
           CommunityPagesRouter(children: [CommunityScreenRouter()]),
-          ActivityPagesRouter(children: [ActivityScreenRouter()]),
           ProfilePagesRouter(children: [ProfileRouter()]),
         ],
         builder: (context, child, tabController) {
@@ -39,12 +38,21 @@ class HomePageController extends StatelessWidget {
       selectedItemColor: Theme.of(context).primaryColor,
       unselectedItemColor: colorGrey,
       selectedIconTheme: IconThemeData(color: Theme.of(context).primaryColor),
-      unselectedIconTheme: IconThemeData(color: Theme.of(context).disabledColor),
+      unselectedIconTheme:
+          IconThemeData(color: Theme.of(context).disabledColor),
       items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home, size: _Constants().iconSize), label: '', tooltip: _Constants().homeToolTip),
-        BottomNavigationBarItem(icon: Icon(Icons.people, size: _Constants().iconSize), label: '', tooltip: _Constants().communityToolTip),
-        BottomNavigationBarItem(icon: Icon(Icons.history, size: _Constants().iconSize), label: '', tooltip: _Constants().chatToolTip),
-        BottomNavigationBarItem(icon: Icon(Icons.person, size: _Constants().iconSize), label: '', tooltip: _Constants().profileToolTip),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.home, size: _Constants().iconSize),
+            label: '',
+            tooltip: _Constants().homeToolTip),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.people, size: _Constants().iconSize),
+            label: '',
+            tooltip: _Constants().communityToolTip),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.person, size: _Constants().iconSize),
+            label: '',
+            tooltip: _Constants().profileToolTip),
       ],
     );
   }
@@ -53,7 +61,6 @@ class HomePageController extends StatelessWidget {
 class _Constants {
   final String homeToolTip = 'Ana Sayfa';
   final String communityToolTip = 'Komuniteler';
-  final String chatToolTip = 'Sohbet';
   final String profileToolTip = 'Profil';
 
   final double iconSize = 25;

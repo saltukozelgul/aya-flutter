@@ -85,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                                 icon: const Icon(Icons.search),
                               ),
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(15),
                               ),
                             ),
                           ),
@@ -97,24 +97,25 @@ class HomeScreen extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(left: 20.0, right: 20, top: 10),
                     child: DefaultTabController(
-                      length: 100,
+                      length: _Strings.tagler.length,
                       child: TabBar(
+                        isScrollable: true,
                         indicatorColor: colorPrimary,
                         labelColor: colorPrimary,
                         unselectedLabelColor: colorDisable,
                         tabs: [
                           //kategoriler listesi
                           //ama boyle tek tek tiklanmiyor sanirim, nasil cozeriz bilemedim burada saliyorm.
-                          SizedBox(
-                            height: 30,
-                            width: MediaQuery.of(context).size.width * 0.99,
-                            child: ListView.builder(
-                              itemBuilder: (context, index) =>
-                                  _kategoriler(context, _Strings.tagler[index]),
-                              itemCount: 10,
-                              scrollDirection: Axis.horizontal,
+                          //iterate tags and create tabs for each tag.
+                          for (var i = 0; i < _Strings.tagler.length; i++)
+                            Tab(
+                              child: Text(_Strings.tagler[i],
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontSize: 18, color: colorDisable)),
                             ),
-                          ),
                         ],
                       ),
                     ),
@@ -268,8 +269,10 @@ Container _kategoriler(BuildContext context, String index) => Container(
       padding: const EdgeInsets.all(1),
       margin: const EdgeInsets.only(right: 5),
       child: Text(index.toString(),
-          style:
-              Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 20)),
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(fontSize: 15, color: colorDisable)),
     );
 
 class _Strings {

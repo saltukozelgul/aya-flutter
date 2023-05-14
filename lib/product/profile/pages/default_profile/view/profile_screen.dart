@@ -157,6 +157,7 @@ Container _buildProfile(BuildContext context) => Container(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Seda Nur Taşkan",
                     textAlign: TextAlign.left,
