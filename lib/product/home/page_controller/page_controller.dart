@@ -61,6 +61,7 @@ class HomePageController extends StatelessWidget {
 class _Constants {
   final String homeToolTip = 'Ana Sayfa';
   final String communityToolTip = 'Komuniteler';
+  final String chatToolTip = 'Sohbet';
   final String profileToolTip = 'Profil';
 
   final double iconSize = 25;
