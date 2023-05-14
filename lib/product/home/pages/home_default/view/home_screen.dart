@@ -75,7 +75,15 @@ class HomeScreen extends StatelessWidget {
                               hintStyle: Theme.of(context)
                                   .textTheme
                                   .bodyMedium
-                                  ?.copyWith(fontSize: 18),
+                                  ?.copyWith(
+                                      fontSize: 18,
+                                      color: colorPrimaryTint20,
+                                      fontWeight: FontWeight.w400,
+                                      fontStyle: FontStyle.italic),
+                              suffixIcon: IconButton(
+                                onPressed: () => print("arama"),
+                                icon: const Icon(Icons.search),
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),

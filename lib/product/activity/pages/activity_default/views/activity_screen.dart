@@ -53,11 +53,17 @@ class ActivityScreen extends StatelessWidget {
   }
 
   Widget _topNavigationBar(BuildContext context) {
-    return CustomTabController(length: HomeScreenTabs.values.length, tabs: _tabs(), onTap: context.read<ActivityCubit>().changePage);
+    return CustomTabController(
+        length: HomeScreenTabs.values.length,
+        tabs: _tabs(),
+        onTap: context.read<ActivityCubit>().changePage);
   }
 
   List<Widget> _tabs() {
-    return [CustomTabTexts(title: _Strings().you, isLast: false), CustomTabTexts(title: _Strings().friends, isLast: true)];
+    return [
+      CustomTabTexts(title: _Strings().you, isLast: false),
+      CustomTabTexts(title: _Strings().friends, isLast: true)
+    ];
   }
 }
 

@@ -5,7 +5,7 @@ const Color colorTransparent = Colors.transparent;
 const Color colorGreen = Colors.green;
 const Color colorGrey = Colors.grey;
 const Color colorWhite = Colors.white;
-const Color colorBlack = Colors.black;
+const Color colorBlack = Color.fromARGB(255, 255, 255, 255);
 const Color colorRed = Colors.red;
 const Color colorPink = Colors.pink;
 const Color colorBlue = Colors.blue;
@@ -13,12 +13,12 @@ const Color colorAmber = Color.fromARGB(255, 255, 191, 0);
 const Color colorDarkBlue = Color.fromARGB(60, 78, 115, 223);
 const Color colorPrimary = Color(0xFF9E8FB2);
 const Color colorPrimaryTint20 = Color(0xFFB1A5C1);
-const Color colorPrimaryDark = Color(0xFF728DE5);
+const Color colorPrimaryDark = Color.fromARGB(255, 80, 72, 90);
 const Color colorDarkPrimary = Color(0xFF445FB0);
 const Color colorSecondry = Color.fromARGB(255, 88, 28, 200);
-const Color colorLightThemeBackground = Color(0xFFF6f6f6);
+const Color colorLightThemeBackground = Color.fromARGB(255, 212, 212, 212);
 
-const Color colorDisable = Color(0xB2000000);
+const Color colorDisable = Color.fromARGB(176, 255, 255, 255);
 
 const Color colorDarkThemeBackground100 = Color(0xFF121212);
 const Color colorDarkThemeBackground75 = Color(0xFF1F1F1F);
