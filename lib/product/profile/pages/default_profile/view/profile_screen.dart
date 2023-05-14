@@ -156,6 +156,7 @@ Container _buildProfile(BuildContext context) => Container(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            const Icon(Icons.person, color: colorDisable, size: 40),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
