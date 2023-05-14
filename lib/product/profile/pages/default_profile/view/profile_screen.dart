@@ -149,7 +149,7 @@ Container _buildProfile(BuildContext context) => Container(
       //profil kısmı
       height: 100,
       decoration: const BoxDecoration(
-        color: colorPrimaryTint20,
+        color: colorLightThemeBackground,
       ),
       child: Padding(
         padding: const EdgeInsets.only(left: 25, right: 25, top: 25),
@@ -165,12 +165,29 @@ Container _buildProfile(BuildContext context) => Container(
                           color: colorDisable,
                           fontWeight: FontWeight.bold,
                         )),
-                Text("+90 505 505 50 50",
-                    textAlign: TextAlign.left,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          fontSize: 18,
-                          color: colorDisable,
-                        )),
+                Row(
+                  children: [
+                    const Icon(Icons.call, color: colorDisable, size: 20),
+                    Text("505 505 50 50",
+                        textAlign: TextAlign.start,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              fontSize: 18,
+                              color: colorDisable,
+                            )),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(Icons.location_on,
+                        color: colorDisable, size: 20),
+                    Text("Merkez / Erzincan",
+                        textAlign: TextAlign.left,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              fontSize: 18,
+                              color: colorDisable,
+                            )),
+                  ],
+                ),
               ],
             ),
             IconButton(

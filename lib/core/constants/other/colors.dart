@@ -16,9 +16,9 @@ const Color colorPrimaryTint20 = Color(0xFFB1A5C1);
 const Color colorPrimaryDark = Color.fromARGB(255, 80, 72, 90);
 const Color colorDarkPrimary = Color(0xFF445FB0);
 const Color colorSecondry = Color.fromARGB(255, 88, 28, 200);
-const Color colorLightThemeBackground = Color.fromARGB(255, 212, 212, 212);
+const Color colorLightThemeBackground = Color.fromARGB(255, 255, 255, 255);
 
-const Color colorDisable = Color.fromARGB(176, 255, 255, 255);
+const Color colorDisable = Color.fromARGB(173, 51, 51, 51);
 
 const Color colorDarkThemeBackground100 = Color(0xFF121212);
 const Color colorDarkThemeBackground75 = Color(0xFF1F1F1F);
