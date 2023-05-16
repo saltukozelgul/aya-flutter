@@ -41,25 +41,8 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20.0, right: 20, top: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        // isim kısmı olsa mı bilemedim açıkçası
-
-                        // Text("Aya",
-                        //     style: Theme.of(context)
-                        //         .textTheme
-                        //         .bodyMedium
-                        //         ?.copyWith(fontSize: 20)),
-                        // IconButton(
-                        //   onPressed: () => print("filtreleme"),
-                        //   icon: const Icon(Icons.help_center_outlined),
-                        // ),
-                      ],
-                    ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 20.0, right: 20, top: 10),
                   ),
                   Padding(
                     padding:
@@ -82,7 +65,10 @@ class HomeScreen extends StatelessWidget {
                                       fontStyle: FontStyle.italic),
                               suffixIcon: IconButton(
                                 onPressed: () => print("arama"),
-                                icon: const Icon(Icons.search),
+                                icon: const Icon(
+                                  Icons.search,
+                                  color: colorPrimary,
+                                ),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
@@ -105,8 +91,6 @@ class HomeScreen extends StatelessWidget {
                         unselectedLabelColor: colorDisable,
                         tabs: [
                           //kategoriler listesi
-                          //ama boyle tek tek tiklanmiyor sanirim, nasil cozeriz bilemedim burada saliyorm.
-                          //iterate tags and create tabs for each tag.
                           for (var i = 0; i < _Strings.tagler.length; i++)
                             Tab(
                               child: Text(_Strings.tagler[i],
@@ -126,7 +110,7 @@ class HomeScreen extends StatelessWidget {
                     //ilanlar listesi
                     shrinkWrap: true,
                     itemBuilder: (context, index) => _Ilan(context, index),
-                    itemCount: 3,
+                    itemCount: 5,
                   ),
                 ],
               ),
@@ -148,7 +132,7 @@ class HomeScreen extends StatelessWidget {
         height: 250,
         margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
         decoration: BoxDecoration(
-          color: colorPrimary,
+          color: colorPrimaryLight,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
@@ -161,8 +145,9 @@ class HomeScreen extends StatelessWidget {
                   left: 15.0, right: 15.0, top: 15, bottom: 5),
               child: Text("Seda Nur Taşkan",
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        fontSize: 20,
-                      )),
+                      fontSize: 20,
+                      color: colorDisable,
+                      fontWeight: FontWeight.bold)),
             ),
             Padding(
               //ilan açıklaması kısmı

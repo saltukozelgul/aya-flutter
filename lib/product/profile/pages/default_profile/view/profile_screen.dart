@@ -79,7 +79,7 @@ class ProfileScreen extends StatelessWidget {
         height: 200,
         margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
         decoration: BoxDecoration(
-          color: colorPrimary,
+          color: colorPrimaryLight,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
@@ -156,7 +156,7 @@ Container _buildProfile(BuildContext context) => Container(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Icon(Icons.person, color: colorDisable, size: 40),
+            const Icon(Icons.person, color: colorPrimary, size: 40),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

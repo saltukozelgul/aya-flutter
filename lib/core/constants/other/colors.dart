@@ -12,6 +12,7 @@ const Color colorBlue = Colors.blue;
 const Color colorAmber = Color.fromARGB(255, 255, 191, 0);
 const Color colorDarkBlue = Color.fromARGB(60, 78, 115, 223);
 const Color colorPrimary = Color(0xFF9E8FB2);
+const Color colorPrimaryLight = Color(0xFFEDEDED);
 const Color colorPrimaryTint20 = Color(0xFFB1A5C1);
 const Color colorPrimaryDark = Color.fromARGB(255, 80, 72, 90);
 const Color colorDarkPrimary = Color(0xFF445FB0);
